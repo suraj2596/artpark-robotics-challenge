@@ -16,19 +16,31 @@ sudo ./run_cerberus.sh
 sudo docker exec -it cerberus bash
 ```
 
+# About cerberus
+
+This bot uses scissor mechanism to expand/compress. Various payloads (gripper, spray, scrubbers) are attached as its rotating end-effector. 
+Based on the task, the end-effector rotates to choose the payload.
+
+the entire scissor mechanism can movel along up and down a spine.
+
+This spine can rotate in the horizontal plane while the scissor can rotate in the vertical plane. (overactated)
+
+The entire bot is placed on 
+
+Please note the simulation is paused initially
+
+Launching the simulation:
+
+
 ```bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch cerberus_gazebo combined_launch.launch # launch gazebo with gripper
+
+roslaunch cerberus_navigation mavigation.launch # to build the map
+
+roslaunch cerberus_gazebo move_base.launch # to begin various tasks
+
 ```
-
-# About cerberus
-
-please note the simulation is paused initially
-
-# About
-
-
-
 
 
 
