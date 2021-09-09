@@ -1,0 +1,51 @@
+artpark:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+
+  # Position Controllers ---------------------------------------
+  scissor_1_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: link_3_JOINT_38
+    pid: {p: 200.0, i: 100.0, d: 20.0}
+  scissor_2_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: link_3_JOINT_39
+    pid: {p: 200.0, i: 100.0, d: 20.0}
+  dry_wiper_ctrl:
+    type: effort_controllers/JointVelocityController
+    joint: link_2_JOINT_16
+    pid: {p: 5.0, i: 20.0, i_clamp: 100.0}
+  wet_wiper_ctrl:
+    type: effort_controllers/JointVelocityController
+    joint: link_2_JOINT_17
+    pid: {p: 5.0, i: 20.0, i_clamp: 100.0}
+  disc_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: link_1_1_JOINT_12
+    pid: {p: 100.0, i: 0.1, d: 1.0}
+  grip_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: link_2_JOINT_13
+    pid: {p: 100.0, i: 0.1, d: 1.0}
+  spine_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: link_1_JOINT_1
+    pid: {p: 100.0, i: 0.1, d: 40.0}
+  orient_ctrl_top_right:
+    type: effort_controllers/JointPositionController
+    joint: link_6_clone_0_clone_clone_JOINT_1
+    pid: {p: 100.0, i: 1.0, d: 30.0}
+  # orient_ctrl_top_left:
+  #   type: effort_controllers/JointPositionController
+  #   joint: link_6_clone_0_clone_clone_clone_JOINT_8
+  #   pid: {p: 100.0, i: 10.0, d: 10.0}
+  # orient_ctrl_bottom_right:
+  #   type: effort_controllers/JointPositionController
+  #   joint: link_6_clone_clone_clone_clone_JOINT_2
+  #   pid: {p: 100.0, i: 10.0, d: 10.0}
+  # orient_ctrl_bottom_left:
+  #   type: effort_controllers/JointPositionController
+  #   joint: link_6_clone_clone_clone_clone_clone_JOINT_9
+  #   pid: {p: 100.0, i: 10.0, d: 10.0}

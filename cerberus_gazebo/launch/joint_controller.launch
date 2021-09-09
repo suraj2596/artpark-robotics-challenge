@@ -1,0 +1,15 @@
+<launch>
+	<arg name="robot_name" default="artpark"/>
+
+    <rosparam file="$(find skid4wd_description)/config/config.yaml" command="load"/>
+	<group ns="$(arg robot_name)">
+
+	    <node name="controller_spawner" 
+	        pkg="controller_manager" 
+	        type="spawner" respawn="false" output="screen"
+	        args="scissor_1_ctrl scissor_2_ctrl spine_ctrl disc_ctrl 
+	        orient_ctrl_top_right
+	        dry_wiper_ctrl wet_wiper_ctrl grip_ctrl joint_state_controller"/>
+	</group>
+
+</launch>

@@ -1,0 +1,7 @@
+<launch> 
+        <rosparam command="load" file="$(find pointcloud1)/config/params.yaml" />  
+        
+        <include file="$(find cerberus_gazebo)/launch/washroom_world.launch" />
+        <include file="$(find cerberus_gazebo)/launch/turtlebot3.launch" />
+        
+</launch>

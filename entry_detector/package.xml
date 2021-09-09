@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>entry_detector</name>
+  <version>0.0.0</version>
+  <description>The entry_detector package</description>
+  <maintainer email="karnikram@gmail.com">Karnik Ram</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <exec_depend>roscpp</exec_depend>
+
+  <build_depend>sensor_msgs</build_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <build_depend>cv_bridge</build_depend>
+  <exec_depend>cv_bridge</exec_depend>
+
+  <build_depend>opencv2</build_depend>
+  <exec_depend>opencv2</exec_depend>
+</package>

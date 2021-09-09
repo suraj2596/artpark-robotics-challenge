@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="scribble">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.005</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.005</size>
+          </box>
+        </geometry>
+
+        <material>
+          <script>
+            <uri>model://scribble/materials/scripts/scribble.material</uri>
+            <name>Scribble/Image</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+     <plugin name="random_spawn_plugin" filename="librandom_spawn_plugin.so"/>
+  </model>
+</sdf>

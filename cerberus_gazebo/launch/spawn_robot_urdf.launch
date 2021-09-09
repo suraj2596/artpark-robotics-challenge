@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="robot_name" default="artpark"/>
+
+	<env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find cerberus_gazebo)/models/rover"/>
+	<env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find cerberus_gazebo)/models/rover"/>
+    <!-- <group ns="/skid4wd"> -->
+	<param name="robot_description" textfile="$(find cerberus_gazebo)/models/rover/model.urdf"/>
+	<!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model $(arg robot_name) -param robot_description"/> -->
+    <!-- </group> -->
+    <!-- converts joint states to TF transforms -->
+<!-- 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+    	<remap from="/joint_states" to="/skid4wd/joint_states" />
+	</node> -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+		respawn="false" output="screen">
+  		<remap from="/joint_states" to="/$(arg robot_name)/joint_states" />
+  	</node>
+</launch>

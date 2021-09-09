@@ -1,0 +1,13 @@
+material Scribble/Image
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/scribble2.png
+      }
+    }
+  }
+}

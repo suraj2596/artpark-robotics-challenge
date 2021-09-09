@@ -1,0 +1,257 @@
+#include <std_msgs/Float64.h>
+#include <ros/callback_queue.h>
+#include <ros/ros.h>
+
+class BaseController{
+private:
+	ros::NodeHandle nh;
+	// ros::Rate sleep_rate(10);
+	ros::Subscriber wipe_sub;
+	ros::Subscriber grip_sub;
+	ros::Subscriber drop_sub;
+	ros::Subscriber init_sub;
+
+	ros::Publisher sci_pub_1;
+	ros::Publisher sci_pub_2;
+	ros::Publisher spine_pub;
+	ros::Publisher dry_pub;
+	ros::Publisher wet_pub;
+	ros::Publisher disc_pub;
+	ros::Publisher grip_pub;
+	ros::Publisher orient_pub;
+	
+	std_msgs::Float64 spine_msg;
+	std_msgs::Float64 wiper_msg;
+	std_msgs::Float64 sci_msg;
+	std_msgs::Float64 disc_msg;
+	std_msgs::Float64 grip_msg;
+	std_msgs::Float64 orient_msg;
+
+
+	void sciPub1(float data){
+		// sci_msg.header.stamp = ros::Time::now();
+		sci_msg.data = data;
+		sci_pub_1.publish(sci_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void sciPub2(float data){
+		// sci_msg.header.stamp = ros::Time::now();
+		sci_msg.data = data;
+		sci_pub_2.publish(sci_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void spinePub(float data){
+		// spine_msg.header.stamp = ros::Time::now();
+		spine_msg.data = data;
+		spine_pub.publish(spine_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void wetWiperPub(float data){
+		// wiper_msg.header.stamp = ros::Time::now();
+		wiper_msg.data = data;
+		wet_pub.publish(wiper_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void dryWiperPub(float data){
+		// wiper_msg.header.stamp = ros::Time::now();
+		wiper_msg.data = data;
+		dry_pub.publish(wiper_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void discPub(float data){
+		// disc_msg.header.stamp = ros::Time::now();
+		disc_msg.data = data;
+		disc_pub.publish(disc_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void gripPub(float data){
+		// grip_msg.header.stamp = ros::Time::now();
+		grip_msg.data = data;
+		grip_pub.publish(grip_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+	void orientPub(float data){
+		// orient_msg.header.stamp = ros::Time::now();
+		orient_msg.data = data;
+		orient_pub.publish(orient_msg);
+		ros::Duration(0.01).sleep();
+	}
+
+
+public:
+	BaseController(const ros::NodeHandle& n){
+		nh = n;
+		// sleep_rate(10);
+		wipe_sub = nh.subscribe("/artpark/wipe_signal", 10, &BaseController::wipeCallback, this);
+		grip_sub = nh.subscribe("/artpark/grip_signal", 10, &BaseController::gripCallback, this);
+		drop_sub = nh.subscribe("/artpark/drop_signal", 10, &BaseController::dropCallback, this);
+		init_sub = nh.subscribe("/artpark/init_signal", 10, &BaseController::initCallback, this);
+
+		sci_pub_1 = nh.advertise<std_msgs::Float64>("/artpark/scissor_1_ctrl/command", 10);
+		sci_pub_2 = nh.advertise<std_msgs::Float64>("/artpark/scissor_2_ctrl/command", 10);
+		spine_pub = nh.advertise<std_msgs::Float64>("/artpark/spine_ctrl/command", 10);
+		dry_pub = nh.advertise<std_msgs::Float64>("/artpark/dry_wiper_ctrl/command", 10);
+		wet_pub = nh.advertise<std_msgs::Float64>("/artpark/wet_wiper_ctrl/command", 10);
+		disc_pub = nh.advertise<std_msgs::Float64>("/artpark/disc_ctrl/command", 10);
+		grip_pub = nh.advertise<std_msgs::Float64>("/artpark/grip_ctrl/command", 10);
+		orient_pub = nh.advertise<std_msgs::Float64>("/artpark/orient_ctrl_top_right/command", 10);
+		ros::Duration(5).sleep();
+		spinePub(0.5);
+		sciPub1(-0.8);
+		sciPub2(0.8);
+		orientPub(-0.01);
+		discPub(-0.01);
+		gripPub(-0.
+		ros::Duration(2.0).sleep();
+	}
+
+	~BaseController(){}
+
+	void wipeCallback(const std_msgs::Float64::ConstPtr& msg){		
+		// wiper_msg.header.stamp = ros::Time:now();
+
+		if(msg->data == 1.0){
+			gripPub(-0.6);
+			spinePub(0.52);
+			sciPub1(-0.8);
+			sciPub2(0.8);
+			discPub(-0.01);
+			orientPub(-0.01);
+			ros::Duration(2.0).sleep();
+
+			for(int i=0; i<100; i++){
+				// gripPub(-0.6 + float(i)*(-0.4 + 0.6)/10);
+				// spinePub(0.42 + float(i)*(0.22 - 0.42)/100);
+				// sciPub1(-0.8 + float(i)*(-0.3 + 0.8)/100);
+				sciPub2(0.8 + float(i)*(-0.8 - 0.8)/100);
+				orientPub(-0.01 + float(i)*(-0.15 + 0.01)/100);
+			}
+			discPub(1.67);
+			ros::Duration(5.0).sleep();
+			spinePub(0.3);
+
+			for(int i=0; i<3; i++){
+				wetWiperPub(10);
+				ros::Duration(2.0).sleep();
+				wetWiperPub(-10);
+				ros::Duration(2.0).sleep();
+			}
+
+			ROS_INFO_STREAM("Wet publisher is turned ON");
+		}
+		else if(msg->data == 2.0){
+			wetWiperPub(0);
+			spinePub(0.42);
+			ROS_INFO_STREAM("Wet publisher is turned OFF");
+		}
+		else if(msg->data == 3.0){
+			spinePub(0.52);
+			discPub(-1.67);
+			ros::Duration(5.0).sleep();
+			spinePub(0.3);
+
+			for(int i=0; i<3; i++){
+				dryWiperPub(10);
+				ros::Duration(2.0).sleep();
+				dryWiperPub(-10);
+				ros::Duration(2.0).sleep();
+			}
+			ROS_INFO_STREAM("Dry publisher is turned ON");
+		}
+		else if(msg->data == 4.0){
+			dryWiperPub(0);
+			spinePub(0.42);
+			ROS_INFO_STREAM("Dry publisher is turned OFF");
+		}
+		else{
+			ROS_INFO_STREAM("Invalid argument");
+		}
+	}
+
+
+
+	void initCallback(const std_msgs::Float64::ConstPtr& msg){
+		gripPub(-0.6);
+		spinePub(0.42);
+		sciPub1(-0.8);
+		sciPub2(0.8);
+		discPub(-0.01);
+		orientPub(-0.01);
+		ros::Duration(2.0).sleep();
+	}
+
+	void gripCallback(const std_msgs::Float64::ConstPtr& msg){
+		gripPub(-0.6);
+		spinePub(0.42);
+		sciPub1(-0.8);
+		sciPub2(0.8);
+		discPub(-0.01);
+		orientPub(-0.01);
+		ros::Duration(2.0).sleep();
+
+		for(int i=0; i<100; i++){
+			// gripPub(-0.6 + float(i)*(-0.4 + 0.6)/10);
+			// spinePub(0.42 + float(i)*(0.22 - 0.42)/100);
+			// sciPub1(-0.8 + float(i)*(-0.3 + 0.8)/100);
+			sciPub2(0.8 + float(i)*(-0.8 - 0.8)/100);
+			orientPub(-0.01 + float(i)*(-0.15 + 0.01)/100);
+		}
+
+		for(int i=0; i<100; i++){
+			// gripPub(-0.6 + float(i)*(-0.4 + 0.6)/10);
+			spinePub(0.42 + float(i)*(0.22 - 0.42)/100);
+			sciPub1(-0.8 + float(i)*(-0.3 + 0.8)/100);
+			sciPub2(-0.8 + float(i)*(-0.3 + 0.8)/100);
+			orientPub(-0.15 + float(i)*(-0.05 + 0.15)/100);
+		}
+		gripPub(0.2);
+		ros::Duration(2.0).sleep();
+
+		for(int i=0; i<100; i++){
+			// gripPub(-0.6 + float(i)*(-0.4 + 0.6)/10);
+			// spinePub(0.42 + float(i)*(0.22 - 0.42)/10);
+			sciPub1(-0.3 + float(i)*(-1.0 + 0.3)/100);
+			sciPub2(-0.3 + float(i)*(1.0 + 0.3)/100);
+			orientPub(-0.05 + float(i)*(-0.01 + 0.05)/100);
+		}
+
+	}
+
+	void dropCallback(const std_msgs::Float64::ConstPtr& msg){
+		spinePub(0.6);
+		ros::Duration(2.0).sleep();
+
+		for(int i=0; i<100; i++){
+			// gripPub(-0.6 + float(i)*(-0.4 + 0.6)/10);
+			// spinePub(0.42 + float(i)*(0.22 - 0.42)/10);
+			sciPub1(-1.0 + float(i)*(0.3 + 1.0)/100);
+			sciPub2(1.0 + float(i)*(-0.3 - 1.0)/100);
+			orientPub(-0.01 + float(i)*(0.03 + 0.01)/100);
+		}
+		ros::Duration(2.0).sleep();
+		gripPub(-0.6);
+	}
+
+};
+
+
+
+
+
+
+int main(int argc, char** argv){
+  ros::init(argc, argv, "base_controller");
+  ros::NodeHandle nh;
+
+  BaseController controller_(nh);
+
+
+  ros::spin();
+}
