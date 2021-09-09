@@ -860,12 +860,18 @@
 
 
 
-    <joint name='robot_manipulator' type='fixed'>
+    <joint name='robot_manipulator' type='revolute'>
       <parent>chassis</parent>
       <child>link_1</child>
       <pose>0 0 0.1 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+	<limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>100</effort>
+          <velocity>0.5</velocity>
+        </limit>
       </axis>
       
       <physics>
@@ -4190,6 +4196,12 @@
       <pose>0 0 0.1 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+	  <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>1000</effort>
+            <velocity>0.5</velocity>
+        </limit>
       </axis>
       
       <physics>

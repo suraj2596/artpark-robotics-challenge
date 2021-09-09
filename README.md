@@ -15,6 +15,46 @@ sudo ./run_cerberus.sh
 # for bash access in a separate terminal
 sudo docker exec -it cerberus bash
 ```
+
+```bash
+source ~/catkin_ws/devel/setup.bash
+roslaunch cerberus_gazebo combined_launch.launch # launch gazebo with gripper
+```
+
+# About cerberus
+
+please note the simulation is paused initially
+
+# About
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Launching the simulation
 For gripper action, use the main branch.
 

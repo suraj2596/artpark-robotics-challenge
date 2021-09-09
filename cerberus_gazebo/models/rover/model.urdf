@@ -98,9 +98,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="base_JOINT_1" type="fixed">
+  <joint name="robot_manipulator" type="revolute">
      <parent link="base_link"/>
      <child link="link_1"/>
+     <axis xyz="0 0 1"/>
+     <limit
+       lower="-3.14"
+       upper="3.14"
+       effort="100"
+       velocity="0.5" />
    </joint>
   <link name='link_3'>
     <inertial>
@@ -165,7 +171,7 @@
    </joint>
 
 
-  
+
   <link name='link_6_clone_clone_0'>
     <inertial>
       <mass value="0.1"/>
@@ -231,7 +237,7 @@
 
 
 
-  
+
   <link name='link_6_clone_0_clone_clone_clone_0'>
     <inertial>
       <mass value="0.1"/>
@@ -297,7 +303,7 @@
 
 
 
-  
+
   <link name='link_6_clone_clone_clone_clone_clone_0'>
     <inertial>
       <mass value="0.1"/>
@@ -368,6 +374,17 @@
   </joint>
 
   <link name="camera_link"/>
+
+  <transmission name="stem">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="robot_manipulator">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_stem">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 
   <transmission name="tran0">
     <type>transmission_interface/SimpleTransmission</type>

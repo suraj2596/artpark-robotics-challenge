@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 	<arg name="robot_name" default="artpark"/>
 
@@ -9,7 +10,8 @@
 	        type="spawner" respawn="false" output="screen"
 	        args="scissor_1_ctrl scissor_2_ctrl spine_ctrl disc_ctrl 
 	        orient_ctrl_top_right
-	        dry_wiper_ctrl wet_wiper_ctrl grip_ctrl joint_state_controller"/>
+	        dry_wiper_ctrl wet_wiper_ctrl grip_ctrl stem_ctrl joint_state_controller"/>
 	</group>
+    <node name="base_controller" pkg="arm_controller" type="base_controller" output="screen"/>
 
 </launch>

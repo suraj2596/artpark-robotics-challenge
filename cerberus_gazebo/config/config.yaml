@@ -5,6 +5,10 @@ artpark:
     publish_rate: 50  
 
   # Position Controllers ---------------------------------------
+  stem_ctrl:
+    type: effort_controllers/JointPositionController
+    joint: robot_manipulator
+    pid: {p: 20.0, i: 0.1, d: 30.0}
   scissor_1_ctrl:
     type: effort_controllers/JointPositionController
     joint: link_3_JOINT_38
