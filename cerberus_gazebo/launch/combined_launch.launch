@@ -5,18 +5,15 @@
     <!-- <arg name="world_name" default="$(find rotors_gazebo)/worlds/waypoint.world"/> -->
     <!-- <arg name="world_name" default="worlds/empty.world"/> -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">     
-        <arg name="world_name" default="worlds/empty.world"/>
-        <!-- <arg name="world_name" value="/home/cerberus/washroom2.world"/> -->
+        <!-- <arg name="world_name" default="worlds/empty.world"/> -->
+        <arg name="world_name" value="$(find cerberus_gazebo)/worlds/washroom.world"/>
         <arg name="paused" value="true"/>
         <arg name="verbose" value="false"/>
     </include>
 
 
-    <!-- Load Scene -->
-    <!-- <include file="$(find skid4wd_description)/launch/load_scene.launch" /> -->
 
     <!-- Spawn Robot Model -->
-    <!-- <include file="$(find skid4wd_description)/launch/spawn.launch" /> -->
     <include file="$(find cerberus_gazebo)/launch/spawn_robot.launch" />
     <include file="$(find cerberus_gazebo)/launch/spawn_robot_urdf.launch" />
     <include file="$(find cerberus_gazebo)/launch/joint_controller.launch" />

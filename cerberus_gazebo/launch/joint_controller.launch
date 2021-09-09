@@ -1,7 +1,7 @@
 <launch>
 	<arg name="robot_name" default="artpark"/>
 
-    <rosparam file="$(find skid4wd_description)/config/config.yaml" command="load"/>
+    <rosparam file="$(find cerberus_gazebo)/config/config.yaml" command="load"/>
 	<group ns="$(arg robot_name)">
 
 	    <node name="controller_spawner" 

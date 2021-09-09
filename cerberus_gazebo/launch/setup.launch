@@ -1,10 +1,10 @@
 <launch> 
         <rosparam command="load" file="$(find pointcloud1)/config/params.yaml" />  
         
-        <include file="$(find cerberus_gazebo)/launch/turtlebot3_navigation.launch">
+<!--	<include file="$(find cerberus_gazebo)/launch/turtlebot3_navigation.launch">
                 <arg name="localization" value="true" />
-        </include>	
-        
+        </include>
+-->        
         <node pkg="trash_can_detector" type="set_navigation_goal" name="navigationNode" />
         
         <node pkg="pal_vision_segmentation" type="histogram_segmentation" name="histogram_segmentation" args="$(find trash_can_detector)/src/images/trash_can_image3.png">
