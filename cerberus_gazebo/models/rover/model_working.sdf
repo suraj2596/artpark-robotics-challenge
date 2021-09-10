@@ -4,7 +4,7 @@
     <pose>0 0 .2 0 0 0</pose>
 
 
-     <link name='chassis'>
+     <link name='base_link'>
       <!-- <pose>0 0 .1 0 0 0</pose> -->
       <pose>0.0 0.0 .1 0 0 0</pose>
       <inertial>
@@ -680,7 +680,7 @@
 
 
     <joint name='castor_lf' type='ball'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>left_castor_front</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
@@ -698,7 +698,7 @@
     </joint>
 
     <joint name='castor_lb' type='ball'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>left_castor_back</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
@@ -717,7 +717,7 @@
 
 
     <joint name='castor_rf' type='ball'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>right_castor_front</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
@@ -736,7 +736,7 @@
 
 
     <joint name='castor_rb' type='ball'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>right_castor_back</child>
       <pose frame=''>0 0 0 0 -0 0</pose>
       <physics>
@@ -758,7 +758,7 @@
 
 <joint type="revolute" name="wheel_l">
     <child>left_wheel</child>
-    <parent>chassis</parent>
+    <parent>base_link</parent>
     <axis>
       <xyz>0 1 0</xyz>
       <use_parent_model_frame>true</use_parent_model_frame>
@@ -791,7 +791,7 @@
 
   <joint type="revolute" name="wheel_r">
     <child>right_wheel</child>
-    <parent>chassis</parent>
+    <parent>base_link</parent>
     <axis>
       <xyz>0 1 0</xyz>
       <use_parent_model_frame>true</use_parent_model_frame>
@@ -834,7 +834,7 @@
     <rightRearJoint>right_back</rightRearJoint>
     <wheelSeparation>0.6</wheelSeparation>
     <wheelDiameter>0.1</wheelDiameter>
-    <robotBaseFrame>chassis</robotBaseFrame>
+    <robotBaseFrame>base_link</robotBaseFrame>
     <torque>50</torque>
     <topicName>cmd_vel</topicName>
     <odometryTopic>odom</odometryTopic>
@@ -861,7 +861,7 @@
 
 
     <joint name='robot_manipulator' type='revolute'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>link_1</child>
       <pose>0 0 0.1 0 -0 0</pose>
       <axis>
@@ -4191,7 +4191,7 @@
 
 
 <!--     <joint name='robot_manipulator' type='fixed'>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
       <child>link_1</child>
       <pose>0 0 0.1 0 -0 0</pose>
       <axis>
@@ -5622,7 +5622,7 @@
     </include>
     <joint name="kinect_ros_joint" type="fixed">
       <child>kinect_ros::link</child>
-      <parent>chassis</parent>
+      <parent>base_link</parent>
     </joint>
 
   </model>

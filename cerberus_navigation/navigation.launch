@@ -1,7 +1,7 @@
 <launch>
 
 <arg name="database_path" default="~/.ros/rtabmap.db"/>
-<arg name="move_forward_only" default="true"/>
+<arg name="move_forward_only" default="false"/>
 
   <group ns="rtabmap">
 
@@ -43,5 +43,5 @@
   </include>
 
   <node pkg="rviz" type="rviz" name="rviz" required="true"
-    args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+    args="-d $(find cerberus_navigation)/cerberus_navigation.rviz"/>
 </launch>

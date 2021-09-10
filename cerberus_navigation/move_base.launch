@@ -9,7 +9,8 @@
         <rosparam file="$(find cerberus_navigation)/global_costmap_params.yaml" command="load"/>
         <rosparam file="$(find cerberus_navigation)/base_local_planner_params.yaml" command="load"/>
 
-        <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" />
+        <!-- <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" /> -->
+        <param name="DWAPlannerROS/min_vel_x" value="1.0" />
     </node>
 
 </launch>
