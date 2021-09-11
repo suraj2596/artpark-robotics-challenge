@@ -66,44 +66,5 @@ int main(int argc, char** argv){
     std::vector<float> waypoints;
     nh.getParam("/WAYPOINTS", waypoints);
 
-    int n = waypoints.size();
-    for (int i=0; i<n; i+=2) {
-
-        for(int j = 0; j < 10; j ++)
-        {
-            move_base_msgs::MoveBaseGoal goal;
-
-            // transform robots position to map frame
-            geometry_msgs::TransformStamped transformStamped;
-            try
-            {
-                transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
-            }
-            catch(tf2::TransformException &exception)
-            {
-                ROS_ERROR("%s", exception.what());
-            }
-
-            // transformation matrix
-            Eigen::Affine3d transform_matrix = tf2::transformToEigen(transformStamped);
-
-            // transform origin
-            Eigen::Vector4d origin(0, 0, 0, 1);
-            Eigen::Vector4d robot_position = transform_matrix * origin;
-            float x = (j+1)*waypoints[i]/10;
-            float y = (j+1)*waypoints[i+1]/10;
-            // find orientation using robot position and trash item position
-            float roll = 0.0, pitch = 0.0;
-            float yaw = atan(y - robot_position(1) / x - robot_position(0));
-            tf2::Quaternion quat_tf;
-            quat_tf.setRPY(roll, pitch, yaw);
-            geometry_msgs::Quaternion quat_msg;
-            tf2::convert(quat_tf, quat_msg);
-
-            ROS_INFO("Hereeeeee %f %f", robot_position(0), robot_position(1));
-            ROS_INFO("Destination %f %f", x, y);
-            setNavGoal(x,y, quat_msg, ac);
-        }
-
-    }
+    setNavGoal(1,1, quat_msg, ac);
 }

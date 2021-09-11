@@ -166,7 +166,7 @@ int main(int argc, char** argv){
             geometry_msgs::TransformStamped transformStamped;
             try
             {
-                transformStamped = tfBuffer.lookupTransform("odom", "base_footprint", ros::Time(0));
+                transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
             }
             catch(tf2::TransformException &exception)
             {
@@ -222,7 +222,7 @@ int main(int argc, char** argv){
             geometry_msgs::TransformStamped transformStamped;
             try
             {
-                transformStamped = tfBuffer.lookupTransform("odom", "base_footprint", ros::Time(0));
+                transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
             }
             catch(tf2::TransformException &exception)
             {
