@@ -765,8 +765,8 @@
       <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <effort>100</effort>
+          <velocity>1</velocity>
       </limit>
       <dynamics>
           <spring_reference>0</spring_reference>
@@ -798,8 +798,8 @@
       <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
-          <effort>-1</effort>
-          <velocity>-1</velocity>
+          <effort>100</effort>
+          <velocity>1</velocity>
       </limit>
       <dynamics>
           <spring_reference>0</spring_reference>

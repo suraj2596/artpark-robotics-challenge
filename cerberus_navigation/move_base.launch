@@ -11,6 +11,7 @@
 
         <!-- <param name="DWAPlannerROS/min_vel_x" value="0.0" if="$(arg move_forward_only)" /> -->
         <param name="DWAPlannerROS/min_vel_x" value="1.0" />
+        <param name="DWAPlannerROS/max_rot_vel" value="0.1" />
     </node>
 
 </launch>

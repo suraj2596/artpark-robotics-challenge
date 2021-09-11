@@ -6,8 +6,8 @@ skid4wd:
 
   drive_controller:
     type: "diff_drive_controller/DiffDriveController"
-    left_wheel: ['joint_front_left', 'joint_rear_left']
-    right_wheel: ['joint_front_right', 'joint_rear_right']
+    left_wheel: ['wheel_l']
+    right_wheel: ['wheel_r']
     publish_rate: 50
     pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
     twist_covariance_diagonal: [0.001, 0.001, 0.001, 1000000.0, 1000000.0, 0.03]
@@ -25,13 +25,13 @@ skid4wd:
     # Whenever a min_* is unspecified, default to -max_*
     linear:
       x:
-        has_velocity_limits    : true
+        has_velocity_limits    : false
         max_velocity           : 20.0   # m/s
-        has_acceleration_limits: true
+        has_acceleration_limits: false
         max_acceleration       : 20.0   # m/s^2
     angular:
       z:
         has_velocity_limits    : true
-        max_velocity           : 0.5   # rad/s
+        max_velocity           : 0.1   # rad/s
         has_acceleration_limits: true
-        max_acceleration       : 0.5   # rad/s^2
+        max_acceleration       : 0.1   # rad/s^2

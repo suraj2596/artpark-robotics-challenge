@@ -31,6 +31,7 @@ private:
 	ros::Publisher wet_pub;
 	ros::Publisher disc_pub;
 	ros::Publisher grip_pub;
+	ros::Publisher stem_pub;
 	ros::Publisher orient_pub;
 	
 	ros::ServiceClient attach_client;
@@ -43,6 +44,7 @@ private:
 	std_msgs::Float64 wiper_msg;
 	std_msgs::Float64 sci_msg;
 	std_msgs::Float64 disc_msg;
+	std_msgs::Float64 stem_msg;
 	std_msgs::Float64 grip_msg;
 	std_msgs::Float64 orient_msg;
 
@@ -55,6 +57,13 @@ private:
 	double grip2_pos[3];
 	
 
+
+	void stemPub(float data){
+		// sci_msg.header.stamp = ros::Time::now();
+		stem_msg.data = data;
+		stem_pub.publish(stem_msg);
+		ros::Duration(0.01).sleep();
+	}
 
 	void sciPub1(float data){
 		// sci_msg.header.stamp = ros::Time::now();
@@ -130,6 +139,7 @@ public:
 		dry_pub = nh.advertise<std_msgs::Float64>("/artpark/dry_wiper_ctrl/command", 10);
 		wet_pub = nh.advertise<std_msgs::Float64>("/artpark/wet_wiper_ctrl/command", 10);
 		disc_pub = nh.advertise<std_msgs::Float64>("/artpark/disc_ctrl/command", 10);
+		stem_pub = nh.advertise<std_msgs::Float64>("/artpark/stem_ctrl/command", 10);
 		grip_pub = nh.advertise<std_msgs::Float64>("/artpark/grip_ctrl/command", 10);
 		orient_pub = nh.advertise<std_msgs::Float64>("/artpark/orient_ctrl_top_right/command", 10);
 
@@ -236,6 +246,7 @@ public:
 		sciPub2(0.8);
 		discPub(-0.01);
 		orientPub(-0.01);
+		stemPub(0.0);
 		ros::Duration(2.0).sleep();
 	}
 
