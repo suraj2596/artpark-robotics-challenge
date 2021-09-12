@@ -83,11 +83,4 @@ rostopic pub -1 /artpark/grip_signal std_msgs/Float64 "data: 0.0"
 rostopic pub -1 /artpark/drop_signal std_msgs/Float64 "data: 0.0" 
 ```
 
-For navigation stack, use the navload branch,
-
-```bash
-catkin build
-source ~/catkin_ws/devel/setup.bash
-roslaunch cerberus_gazebo setup.launch
-```
 
