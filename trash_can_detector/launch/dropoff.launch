@@ -1,0 +1,5 @@
+<launch> 
+       
+        <node pkg="trash_can_detector" type="trash_dropoff" name="trash_dropoff_node" />
+        
+</launch>

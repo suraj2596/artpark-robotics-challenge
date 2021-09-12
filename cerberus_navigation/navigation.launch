@@ -3,6 +3,10 @@
 <arg name="database_path" default="~/.ros/rtabmap.db"/>
 <arg name="move_forward_only" default="false"/>
 
+<arg name="localization" default="false"/>
+<arg if="$(arg localization)" name="rtabmap_args" default=""/>
+<arg unless="$(arg localization)" name="rtabmap_args" default="-d"/>
+
   <group ns="rtabmap">
 
     <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="standalone rtabmap_ros/rgbd_sync" output="screen">
@@ -14,7 +18,7 @@
       <param name="approx_sync"       value="true"/>
     </node>
 
-    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="--delete_db_on_start">
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg rtabmap_args)">
           <param name="database_path" type="string" value="$(arg database_path)"/>
           <param name="frame_id"        type="string" value="base_link"/>
           <param name="subscribe_depth" type="bool"   value="false"/>
@@ -34,6 +38,11 @@
           <param name="use_action_for_goal" type="bool" value="true"/>
           <remap from="move_base" to="/move_base"/>
           <remap from="grid_map" to="/map"/>
+
+          <!-- localization mode -->
+          <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+          <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+          <param if="$(arg localization)" name="RGBD/SavedLocalizationIgnored" type="string" value="true"/>
     </node>
 
   </group>

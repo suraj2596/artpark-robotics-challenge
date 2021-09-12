@@ -1,13 +1,13 @@
 MAX_CLUSTER_SIZE : 50
 MIN_CLUSTER_SIZE : 5
-CLUSTER_TOLERANCE : 0.1
+CLUSTER_TOLERANCE : 0.05
 
 #params for removing ground plane
 MAX_HEIGHT : 0.02
 FLOOR_MAX_ANGLE : 5 #Invariant because of ransac plane fitting.
 
 #params for ROS
-TOPIC_TO_SUBSCRIBE_TO : "/rtabmap/cloud_map"
+TOPIC_TO_SUBSCRIBE_TO : "/rtabmap/cloud_ground"
 
 TOPIC_TO_PUBLISH : "/closest_cluster"
 PLANAR_DIST_THRESHOLD : 0.05
@@ -15,4 +15,4 @@ PLANAR_MINIMUM_PERCENTAGE : 30
 
 TRASH_CAN_CENTROID : [0, 0, 0]
 TRASH_CENTROIDS : []
-WAYPOINTS: [1, 0]
+WAYPOINTS: [-0.5 ,-1, -0.25, -0.25, -0.75, -0.75, -0.5,0]
