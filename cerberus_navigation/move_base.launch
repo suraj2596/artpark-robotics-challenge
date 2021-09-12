@@ -1,7 +1,5 @@
 <launch>
 
-    <arg name="move_forward_only" default="false"/>
-
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
 
     <node pkg="move_base" type="move_base" name="move_base" output="screen">

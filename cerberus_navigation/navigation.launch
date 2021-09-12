@@ -39,7 +39,7 @@
   </group>
 
   <include file="$(find cerberus_navigation)/move_base.launch">
-    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+    <!-- <arg name="move_forward_only" value="$(arg move_forward_only)"/> -->
   </include>
 
   <node pkg="rviz" type="rviz" name="rviz" required="true"

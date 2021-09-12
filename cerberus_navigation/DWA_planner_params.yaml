@@ -1,8 +1,10 @@
 DWAPlannerROS:
-    max_trans_x: 1
-    max_rot_vel: 0.1
+    min_vel_x: -2
+    max_vel_trans: 0.5
+    max_rot_vel: 0.2
     acc_lim_th: 0.1
     xy_goal_tolerance: 0.2
-    latch_xy_goal_tolerance: false
+    latch_xy_goal_tolerance: true
+    controller_frequency: 100
 
 
