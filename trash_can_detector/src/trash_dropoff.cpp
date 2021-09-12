@@ -155,10 +155,11 @@ int main(int argc, char** argv){
     nh.getParam("/TRASH_CENTROIDS", waypoints);
 
     int n = waypoints.size();
+    int steps = 10;
     for (int i=0; i<n; i+=3) {
 
         // getThereSlowly(waypoints[i], waypoints[i+1], 0, ac)
-        for(int j = 0; j < 20; j ++)
+        for(int j = 0; j < steps; j ++)
         {
             move_base_msgs::MoveBaseGoal goal;
 
@@ -179,8 +180,10 @@ int main(int argc, char** argv){
             // transform origin
             Eigen::Vector4d origin(0, 0, 0, 1);
             Eigen::Vector4d robot_position = transform_matrix * origin;
-            float x = (j+1)*waypoints[i]/20;
-            float y = (j+1)*waypoints[i+1]/20;
+            float x = (j+1)*(waypoints[i])/steps;
+            float y = (j+1)*(waypoints[i+1])/steps;
+            // float x = (j+1)*(waypoints[i] - robot_position[0])/steps;
+            // float y = (j+1)*(waypoints[i+1] - robot_position[1])/steps;
             // find orientation using robot position and trash item position
             float roll = 0.0, pitch = 0.0;
             float yaw = atan(y - robot_position(1) / x - robot_position(0));
@@ -214,7 +217,7 @@ int main(int argc, char** argv){
         // go to trash can
         ROS_INFO("Trash can at %f %f", trash_can_centroid[0], trash_can_centroid[1]);
 
-        for(int j = 0; j < 20; j ++)
+        for(int j = 0; j < steps; j ++)
         {
             move_base_msgs::MoveBaseGoal goal;
 
@@ -235,8 +238,10 @@ int main(int argc, char** argv){
             // transform origin
             Eigen::Vector4d origin(0, 0, 0, 1);
             Eigen::Vector4d robot_position = transform_matrix * origin;
-            float x = (j+1)*trash_can_centroid[0]/20;
-            float y = (j+1)*trash_can_centroid[1]/20;
+            float x = (j+1)*(trash_can_centroid[0])/steps;
+            float y = (j+1)*(trash_can_centroid[1])/steps;
+            // float x = (j+1)*(trash_can_centroid[0] - robot_position[0])/steps;
+            // float y = (j+1)*(trash_can_centroid[1] - robot_position[1])/steps;
             // find orientation using robot position and trash item position
             float roll = 0.0, pitch = 0.0;
             float yaw = atan(y - robot_position(1) / x - robot_position(0));

@@ -1,7 +1,8 @@
 DWAPlannerROS:
-    max_rot_vel: 0.25
-    acc_lim_th: 0.5
-    xy_goal_tolerance: 0.05
-    latch_xy_goal_tolerance: true
+    max_trans_x: 1
+    max_rot_vel: 0.1
+    acc_lim_th: 0.1
+    xy_goal_tolerance: 0.2
+    latch_xy_goal_tolerance: false
 
 

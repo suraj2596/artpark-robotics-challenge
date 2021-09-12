@@ -1,6 +1,10 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
+  
+  
+
   <model name='artpark'>
+  
     <pose>0 0 .2 0 0 0</pose>
 
 
@@ -27,7 +31,7 @@
           <geometry>
             <box>
               <!-- <size>.4 .2 .1</size> -->
-              <size>.25 .20 .1</size>
+              <size>.55 .45 .1</size>
             </box>
           </geometry>
         </collision>
@@ -36,7 +40,7 @@
           <geometry>
             <box>
               <!-- <size>.4 .2 .1</size> -->
-              <size>.25 .20 .1</size>
+              <size>.55 .45 .1</size>
             </box>
           </geometry>
           <material>
@@ -79,7 +83,7 @@
   </link>
 
   <link name="left_wheel">
-    <pose>0.0 0.075 0.05 0 1.5707 1.5707</pose>
+    <pose>0.0 0.28 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>10</mass>
         <inertia>
@@ -99,7 +103,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.1</radius>
             <length>.07</length>
           </cylinder>
         </geometry>
@@ -126,7 +130,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.1</radius>
             <length>.07</length>
           </cylinder>
         </geometry>
@@ -181,7 +185,7 @@
 
 
   <link name="right_wheel">
-    <pose>0.0 -0.075 0.05 0 1.5707 1.5707</pose>
+    <pose>0.0 -0.28 0.1 0 1.5707 1.5707</pose>
       <inertial>
         <mass>10</mass>
         <inertia>
@@ -201,7 +205,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.1</radius>
             <length>.07</length>
           </cylinder>
         </geometry>
@@ -228,7 +232,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
+            <radius>0.1</radius>
             <length>.07</length>
           </cylinder>
         </geometry>
@@ -283,7 +287,7 @@
 
 
    <link name='left_castor_front'>
-      <pose frame=''>-0.1 0.075 0.025 0 -0 0</pose>
+      <pose frame=''>-0.2 0.15 0.05 0 -0 0</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -303,7 +307,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <material>
@@ -329,7 +333,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <surface>
@@ -382,7 +386,7 @@
 
 
    <link name='left_castor_back'>
-      <pose frame=''>-0.1 -0.075 0.025 0 -0 0</pose>
+      <pose frame=''>-0.2 -0.15 0.05 0 -0 0</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -402,7 +406,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <material>
@@ -428,7 +432,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <surface>
@@ -481,7 +485,7 @@
 
 
    <link name='right_castor_front'>
-      <pose frame=''>0.1 0.075 0.025 0 -0 0</pose>
+      <pose frame=''>0.2 0.15 0.05 0 -0 0</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -501,7 +505,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <material>
@@ -527,7 +531,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <surface>
@@ -580,7 +584,7 @@
 
 
    <link name='right_castor_back'>
-      <pose frame=''>0.1 -0.075 0.025 0 -0 0</pose>
+      <pose frame=''>0.2 -0.15 0.05 0 -0 0</pose>
       <inertial>
         <mass>0.5</mass>
         <inertia>
@@ -600,7 +604,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <material>
@@ -626,7 +630,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <sphere>
-            <radius>0.025</radius>
+            <radius>0.05</radius>
           </sphere>
         </geometry>
         <surface>
@@ -772,7 +776,7 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
           <damping>0</damping>
-          <friction>1</friction>
+          <friction>0</friction>
       </dynamics>
     </axis>
     <physics>
@@ -805,7 +809,7 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
           <damping>0</damping>
-          <friction>1</friction>
+          <friction>0</friction>
       </dynamics>
     </axis>
     <physics>
@@ -844,17 +848,17 @@
  -->
 
  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-  <alwaysOn>true</alwaysOn>
-  <updateRate>30</updateRate>
-  <leftJoint>wheel_l</leftJoint>
-  <rightJoint>wheel_r</rightJoint>
-  <wheelSeparation>0.15</wheelSeparation>
-  <wheelDiameter>0.1</wheelDiameter>
-  <torque>30</torque>
-  <commandTopic>cmd_vel</commandTopic>
-  <odometryTopic>odom</odometryTopic>
-  <odometryFrame>odom</odometryFrame>
-  <robotBaseFrame>base_link</robotBaseFrame>
+ <alwaysOn>true</alwaysOn>
+ <updateRate>30</updateRate>
+ <leftJoint>wheel_l</leftJoint>
+ <rightJoint>wheel_r</rightJoint>
+ <wheelSeparation>0.5</wheelSeparation>
+ <wheelDiameter>0.2</wheelDiameter>
+ <torque>30</torque>
+ <commandTopic>cmd_vel</commandTopic>
+ <odometryTopic>odom</odometryTopic>
+ <odometryFrame>odom</odometryFrame>
+ <robotBaseFrame>base_link</robotBaseFrame>
  </plugin>
 
 
@@ -866,7 +870,7 @@
       <pose>0 0 0.1 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
-	      <limit>
+	<limit>
           <lower>-3.14</lower>
           <upper>3.14</upper>
           <effort>100</effort>
@@ -995,7 +999,6 @@
         </surface>
       </collision>
     </link>
-
     <link name='link_1_1'>
       <inertial>
         <mass>0.01</mass>
@@ -1094,7 +1097,6 @@
         </surface>
       </collision>
     </link>
-
     <link name='link_2'>
       <inertial>
         <mass>0.05</mass>
@@ -1195,7 +1197,6 @@
         </surface>
       </collision>
     </link>
-    
     <link name='link_2_clone'>
       <inertial>
         <mass>0.01</mass>
@@ -5576,7 +5577,7 @@
           <suspension>
             <cfm>0</cfm>
             <erp>0.2</erp>
-          </suspension> 
+          </suspension>
         </ode>
       </physics>
     </joint>
@@ -5618,6 +5619,8 @@
     <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
       <robotNamespace>/artpark</robotNamespace>
     </plugin>
+
+    
 
     <include>
       <uri>model://kinect_ros</uri>

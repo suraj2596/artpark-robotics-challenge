@@ -67,9 +67,10 @@ int main(int argc, char** argv){
     nh.getParam("/WAYPOINTS", waypoints);
 
     int n = waypoints.size();
+    int steps = 1;
     for (int i=0; i<n; i+=2) {
 
-        for(int j = 0; j < 10; j ++)
+        for(int j = 0; j < steps; j ++)
         {
             move_base_msgs::MoveBaseGoal goal;
 
@@ -90,8 +91,10 @@ int main(int argc, char** argv){
             // transform origin
             Eigen::Vector4d origin(0, 0, 0, 1);
             Eigen::Vector4d robot_position = transform_matrix * origin;
-            float x = (j+1)*waypoints[i]/10;
-            float y = (j+1)*waypoints[i+1]/10;
+            float x = (j+1)*(waypoints[i])/steps;
+            float y = (j+1)*(waypoints[i+1])/steps;
+            // float x = (j+1)*(waypoints[i] - robot_position[0])/steps;
+            // float y = (j+1)*(waypoints[i+1] - robot_position[1])/steps;
             // find orientation using robot position and trash item position
             float roll = 0.0, pitch = 0.0;
             float yaw = atan(y - robot_position(1) / x - robot_position(0));
