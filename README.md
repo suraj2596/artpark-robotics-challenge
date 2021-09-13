@@ -61,4 +61,4 @@ The above image shows our bot in the washroom world complete with a diverse set 
 
 ![Can-mask](image_checkpoints/trash_can_mask.png)
 
-The above image displays the trash can mask (with the trash can in the field of view) which is fed as an input to the trash_can_detector node as well as the depth map obtained from the RGB-D Senso.
+The above image displays the trash can mask (with the trash can in the field of view) which is fed as an input to the trash_can_detector node alongside the depth map for the corresponding timestamp obtained from the RGB-D Sensor.
