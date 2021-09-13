@@ -20,35 +20,18 @@
       <pose>-0.6 -0.8 -0.0024 0 0 0</pose>
     </include>
 
-<plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
-      <namespace>hydrodynamics</namespace>
-      <constant_current>
-      <topic>current_velocity</topic>
-      <velocity>
-          <mean>0</mean>
-          <min>0</min>
-          <max>5</max>
-          <mu>0.0</mu>
-          <noiseAmp>0.0</noiseAmp>
-      </velocity>
-
-      <horizontal_angle>
-          <mean>0</mean>
-          <min>-3.141592653589793238</min>
-          <max>3.141592653589793238</max>
-          <mu>0.0</mu>
-          <noiseAmp>0.0</noiseAmp>
-      </horizontal_angle>
-
-      <vertical_angle>
-          <mean>0</mean>
-          <min>-3.141592653589793238</min>
-          <max>3.141592653589793238</max>
-          <mu>0.0</mu>
-          <noiseAmp>0.0</noiseAmp>
-      </vertical_angle>
-      </constant_current>
-  </plugin>
+    <plugin name="particle_shooter_plugin" filename="libparticle_shooter_plugin.so">
+      <reset_frequency>50.0</reset_frequency>
+      <!-- Fast or slow shoot-->
+      <x_axis_force>0.0</x_axis_force>
+      <y_axis_force>-70.0</y_axis_force>
+      <z_axis_force>0.0</z_axis_force>
+      <x_origin>0.0</x_origin>
+      <y_origin>0.0</y_origin>
+      <z_origin>0.5</z_origin>
+      <random_range>0.05</random_range>
+      <!-- Range of source  -->
+    </plugin>
 
   <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/>
     <model name='ground_plane'>

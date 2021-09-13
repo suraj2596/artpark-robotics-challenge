@@ -16,59 +16,12 @@ sudo ./run_cerberus.sh
 sudo docker exec -it cerberus bash
 ```
 
-# About cerberus
-
-This bot uses scissor mechanism to expand/compress. Various payloads (gripper, spray, scrubbers) are attached as its rotating end-effector. 
-Based on the task, the end-effector rotates to choose the payload.
-
-the entire scissor mechanism can movel along up and down a spine.
-
-This spine can rotate in the horizontal plane while the scissor can rotate in the vertical plane. (overactated)
-
-The entire bot is placed on 
-
 Please note the simulation is paused initially
 
 Launching the simulation:
 
 
-```bash
-source ~/catkin_ws/devel/setup.bash
-roslaunch cerberus_gazebo combined_launch.launch # launch gazebo with gripper
-
-roslaunch cerberus_navigation mavigation.launch # to build the map
-
-roslaunch cerberus_gazebo move_base.launch # to begin various tasks
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Launching the simulation
-For gripper action, use the main branch.
+### Launching the simulation (Running docker will run automatically)
 
 ```bash
 source ~/catkin_ws/devel/setup.bash
@@ -79,8 +32,15 @@ On another terminal, run the docker and in the bash, run the following.
 
 ```bash
 source ~/catkin_ws/devel/setup.bash
-rostopic pub -1 /artpark/grip_signal std_msgs/Float64 "data: 0.0" 
-rostopic pub -1 /artpark/drop_signal std_msgs/Float64 "data: 0.0" 
+roslaunch cerberus_navigation explore.launch
 ```
 
+For bot to start moving and picking up trash items, run the following:
 
+```bash
+catkin build
+source ~/catkin_ws/devel/setup.bash
+rosrun trash_can_detector trash_dropoff
+```
+
+You shall see the bot picking up trash items and dropping them one by one.

@@ -3,7 +3,7 @@ FROM osrf/ros:melodic-desktop-full
 ENV NVIDIA_VISIBLE_DEVICES ${NVIDIA_VISIBLE_DEVICES:-all}
 ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
-ENV CATKIN_WS=/root/cerberus_final_ws
+ENV CATKIN_WS=/root/cerberus_ws
 
 RUN apt update
 RUN apt install -y \
@@ -21,7 +21,7 @@ RUN apt install -y \
     ros-melodic-ros-controllers \
     ros-melodic-dwa-local-planner* \
     ros-melodic-geographic-msgs \
-    libgeographic-dev
+    libgeographic-dev \
     geographiclib-tools
     
 COPY ./ $CATKIN_WS/src/cerberus/

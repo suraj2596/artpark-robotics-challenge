@@ -1,0 +1,676 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere1</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere2</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere3</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere4</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere5</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere6</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere7</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere8</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere9</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere10</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere11</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere12</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere13</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere14</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere15</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere16</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere17</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere18</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere19</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere20</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere21</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere22</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere23</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere24</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere25</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere26</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere27</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere28</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere29</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere30</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere31</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere32</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere33</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere34</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere35</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere36</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere37</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere38</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere39</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere40</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere41</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere42</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere43</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere44</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere45</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere46</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere47</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere48</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere49</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere50</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere51</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere52</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere53</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere54</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere55</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere56</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere57</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere58</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere59</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere60</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere61</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere62</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere63</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere64</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere65</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere66</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere67</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere68</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere69</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere70</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere71</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere72</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere73</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere74</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere75</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere76</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere77</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere78</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere79</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere80</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere81</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere82</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere83</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere84</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere85</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere86</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere87</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere88</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere89</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere90</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere91</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere92</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere93</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere94</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere95</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere96</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+        <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere97</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere98</name>
+      <pose>0 1 0 0 0 0</pose>
+    </include>
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere99</name>
+      <pose>0 2 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://particle_sphere</uri>
+      <name>particle_sphere100</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    
+    
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://testing_surface</uri>
+      <name>testing_surface1</name>
+      <pose>-1 0 0.5 0 1.57 0</pose>
+    </include>
+
+    <joint name = "joint_to_world" type="fixed">
+      <parent>world</parent>
+      <child>testing_surface_link::link</child>
+    </joint>
+
+
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+    </scene>
+
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+
+    <!-- reference to your plugin -->
+    <plugin name="particle_shooter_plugin" filename="libparticle_shooter_plugin.so">
+      <reset_frequency>30.0</reset_frequency>
+      <x_axis_force>-10000.0</x_axis_force>
+      <y_axis_force>0.0</y_axis_force>
+      <z_axis_force>0.0</z_axis_force>
+      
+      <x_origin>1.0</x_origin>
+      <y_origin>0.0</y_origin>
+      <z_origin>0.5</z_origin>
+      
+      <random_range>0.5</random_range>
+      
+    </plugin>
+
+  </world>
+</sdf>
