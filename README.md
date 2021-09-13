@@ -54,3 +54,7 @@ We segment out the groundplane from the rtabmap registered pointcloud using the 
 ![Centroid Detection](image_checkpoints/centroid_detection.png)
 
 In the above image, we can see the trash item centroids (light blue) being detected on the ground plane segmented point cloud (green).
+
+![Centroid Detection](image_checkpoints/world.png)
+
+The above image shows our bot in the washroom world complete with a diverse set of objects, markers and the visualiy distinguishable trash can.
