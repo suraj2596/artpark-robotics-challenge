@@ -21,7 +21,7 @@ RUN apt install -y \
     ros-melodic-ros-controllers \
     ros-melodic-dwa-local-planner* \
     ros-melodic-geographic-msgs \
-    libgeographic-dev
+    libgeographic-dev \
     geographiclib-tools
     
 COPY ./ $CATKIN_WS/src/cerberus/
