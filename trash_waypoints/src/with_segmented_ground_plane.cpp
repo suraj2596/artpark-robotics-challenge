@@ -346,7 +346,7 @@ int main (int argc, char** argv)
     tf2_ros::TransformListener tfListener(tfBuffer);
     ros::Duration(0.1).sleep();
 
-    nh.getParam("/MAX_HEIGHT", MAX_HEIGHT);
+    // nh.getParam("/MAX_HEIGHT", MAX_HEIGHT);
     nh.getParam("MAX_CLUSTER_SIZE", MAX_CLUSTER_SIZE);
     nh.getParam("MIN_CLUSTER_SIZE", MIN_CLUSTER_SIZE); 
     nh.getParam("CLUSTER_TOLERANCE", CLUSTER_TOLERANCE);

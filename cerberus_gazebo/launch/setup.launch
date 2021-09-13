@@ -1,15 +1,15 @@
 <launch> 
-        <rosparam command="load" file="$(find pointcloud1)/config/params.yaml" />  
+        <rosparam command="load" file="$(find trash_waypoints)/config/params.yaml" />  
         
 	<include file="$(find cerberus_navigation)/navigation.launch" />
         
-        <node pkg="trash_can_detector" type="set_navigation_goal" name="navigationNode" />
+        <!-- <node pkg="trash_can_detector" type="set_navigation_goal" name="navigationNode" /> -->
         
         <node pkg="pal_vision_segmentation" type="histogram_segmentation" name="histogram_segmentation" args="$(find trash_can_detector)/src/images/trash_can_image3.png">
                 <remap from="image" to="/camera/rgb/image_raw" />
         </node>
         
         <node pkg="trash_can_detector" type="trash_can_detector" name="trash_can_detector_node" />
-        <node pkg="pointcloud1" type="with_segmented_ground_plane" name="trash_detector_node" />
+        <node pkg="trash_waypoints" type="with_segmented_ground_plane" name="trash_detector_node" />
         
 </launch>

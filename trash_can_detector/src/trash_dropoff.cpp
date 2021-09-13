@@ -35,7 +35,7 @@ tf2_ros::Buffer tfBuffer;
 //             geometry_msgs::TransformStamped transformStamped;
 //             try
 //             {
-//                 transformStamped = tfBuffer.lookupTransform("odom", "base_footprint", ros::Time(0));
+//                 transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
 //             }
 //             catch(tf2::TransformException &exception)
 //             {
@@ -72,7 +72,7 @@ void setNavGoal(float x, float y, geometry_msgs::Quaternion orientation, MoveBas
     geometry_msgs::TransformStamped transformStamped;
     try
     {
-        transformStamped = tfBuffer.lookupTransform("odom", "base_footprint", ros::Time(0));
+        transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
     }
     catch(tf2::TransformException &exception)
     {
@@ -155,7 +155,7 @@ int main(int argc, char** argv){
     nh.getParam("/TRASH_CENTROIDS", waypoints);
 
     int n = waypoints.size();
-    int steps = 10;
+    int steps = 1;
     for (int i=0; i<n; i+=3) {
 
         // getThereSlowly(waypoints[i], waypoints[i+1], 0, ac)
@@ -203,15 +203,15 @@ int main(int argc, char** argv){
 
 
         // pick/drop
-	std_msgs::Float64 zero;
-	zero.data = 0;
+        std_msgs::Float64 zero;
+        zero.data = 0;
         pick_topic.publish(zero);
         ros::Duration(5).sleep();
         drop_topic.publish(zero);
         ros::Duration(5).sleep();
-
-	stem_topic.publish(zero);
-	ros::Duration(0.5).sleep();
+        
+        stem_topic.publish(zero);
+        ros::Duration(0.5).sleep();
 
 
         // go to trash can
