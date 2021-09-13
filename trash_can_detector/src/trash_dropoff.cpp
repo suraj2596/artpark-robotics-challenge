@@ -97,15 +97,16 @@ void setNavGoal(float x, float y, geometry_msgs::Quaternion orientation, MoveBas
     // geometry_msgs::Quaternion quat_msg;
     // tf2::convert(quat_tf, quat_msg);
 
+    float dist = 0.4;
     // stop 0.65m before goal (based on quadrants)
     if (x >= 0 && y >= 0)
-        x -= 0.8, y -= 0.8;
+        x -= dist, y -= dist;
     else if (x < 0 && y >= 0)
-        x += 0.8, y -=0.8;
+        x += dist, y -=dist;
     else if (x < 0 && y < 0)
-        x += 0.8, y +=0.8;
+        x += dist, y +=dist;
     else
-        x -= 0.8, y +=0.8;
+        x -= dist, y +=dist;
 
     //we'll send a goal to the robot
     goal.target_pose.header.frame_id = "odom";
@@ -117,6 +118,7 @@ void setNavGoal(float x, float y, geometry_msgs::Quaternion orientation, MoveBas
     goal.target_pose.pose.orientation = orientation;
 
     ROS_INFO("Sending goal");
+    ROS_INFO("%f %f", x, y);
     ac.sendGoal(goal);
 
     ac.waitForResult();
@@ -153,53 +155,80 @@ int main(int argc, char** argv){
     // set nav goals for waypoints
     std::vector<float> waypoints;
     nh.getParam("/TRASH_CENTROIDS", waypoints);
+    //for(int i = 0; i < waypoints.size(); i++)
+    //    ROS_INFO("waypoints vec %f", waypoints[i]);
 
     int n = waypoints.size();
     int steps = 1;
     for (int i=0; i<n; i+=3) {
+        move_base_msgs::MoveBaseGoal goal;
 
-        // getThereSlowly(waypoints[i], waypoints[i+1], 0, ac)
-        for(int j = 0; j < steps; j ++)
+        
+
+        // transform robots position to map frame
+        geometry_msgs::TransformStamped transformStamped;
+        try
         {
-            move_base_msgs::MoveBaseGoal goal;
-
-            // transform robots position to map frame
-            geometry_msgs::TransformStamped transformStamped;
-            try
-            {
-                transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
-            }
-            catch(tf2::TransformException &exception)
-            {
-                ROS_ERROR("%s", exception.what());
-            }
-
-            // transformation matrix
-            Eigen::Affine3d transform_matrix = tf2::transformToEigen(transformStamped);
-
-            // transform origin
-            Eigen::Vector4d origin(0, 0, 0, 1);
-            Eigen::Vector4d robot_position = transform_matrix * origin;
-            float x = (j+1)*(waypoints[i])/steps;
-            float y = (j+1)*(waypoints[i+1])/steps;
-            // float x = (j+1)*(waypoints[i] - robot_position[0])/steps;
-            // float y = (j+1)*(waypoints[i+1] - robot_position[1])/steps;
-            // find orientation using robot position and trash item position
-            float roll = 0.0, pitch = 0.0;
-            float yaw = atan(y - robot_position(1) / x - robot_position(0));
-            tf2::Quaternion quat_tf;
-            quat_tf.setRPY(roll, pitch, yaw);
-            geometry_msgs::Quaternion quat_msg;
-            tf2::convert(quat_tf, quat_msg);
-
-            ROS_INFO("Hereeeeee %f %f", robot_position(0), robot_position(1));
-            setNavGoal(x, y, quat_msg, ac);
-            ros::Duration(1).sleep();
-
+            transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
         }
+        catch(tf2::TransformException &exception)
+        {
+            ROS_ERROR("%s", exception.what());
+        }
+
+        // transformation matrix
+        Eigen::Affine3d transform_matrix = tf2::transformToEigen(transformStamped);
+    
+
+        // transform origin
+        Eigen::Vector4d origin(0, 0, 0, 1);
+        Eigen::Vector4d robot_position = transform_matrix * origin;
+        float x = (waypoints[i])/steps;
+        float y = (waypoints[i+1])/steps;
+        // float x = (j+1)*(waypoints[i] - robot_position[0])/steps;
+        // float y = (j+1)*(waypoints[i+1] - robot_position[1])/steps;
+        // find orientation using robot position and trash item position
+        // float roll = 0.0, pitch = 0.0;
+        // float yaw = atan(y - robot_position(1) / x - robot_position(0));
+        // tf2::Quaternion quat_tf;
+        // quat_tf.setRPY(roll, pitch, yaw);
+        // geometry_msgs::Quaternion quat_msg;
+        // tf2::convert(quat_tf, quat_msg);
+        float roll = 0.0, pitch = 0.0;
+        float yaw = 0;
+        tf2::Quaternion quat_tf;
+        quat_tf.setRPY(roll, pitch, yaw);
+        geometry_msgs::Quaternion quat_msg;
+        tf2::convert(quat_tf, quat_msg);
+
+        ROS_INFO("Hereeeeee %f %f", robot_position(0), robot_position(1));
+        setNavGoal(x, y, quat_msg, ac);
+        ros::Duration(1).sleep();
+
+
         // navigate to waypoint
         // ROS_INFO("Trash item at %f %f", waypoints[i], waypoints[i+1]);
         // setNavGoal(waypoints[i], waypoints[i+1], 0, ac);
+
+        try
+        {
+            transformStamped = tfBuffer.lookupTransform("odom", "base_link", ros::Time(0));
+        }
+        catch(tf2::TransformException &exception)
+        {
+            ROS_ERROR("%s", exception.what());
+        }
+
+        
+        // transform origin
+        robot_position = transform_matrix * origin;
+        
+        roll = 0.0, pitch = 0.0;
+        yaw = atan(y - robot_position(1) / x - robot_position(0));
+        quat_tf.setRPY(roll, pitch, yaw);
+        tf2::convert(quat_tf, quat_msg);
+        setNavGoal(robot_position(0), robot_position(1), quat_msg, ac);
+        ros::Duration(1).sleep();
 
 
         // pick/drop

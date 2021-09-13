@@ -155,7 +155,7 @@ int main(int argc, char **argv)
     // subscribe to topic /camera/depth/image_raw
     // type: sensor_msgs/Image
     // returns: image information (with depth info) from RGBD sensor
-    message_filters::Subscriber<sensor_msgs::Image> image_sub(nh, "/camera/depth/image_raw", 1);
+    message_filters::Subscriber<sensor_msgs::Image> image_sub(nh, "/camera/color/image_raw", 1);
 
     // subscribe to topic /histogram_segmentation/mask
     // type: sensor_msgs/Image

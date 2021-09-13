@@ -270,7 +270,7 @@ static void FindClosestCluster (const pcl::PointCloud<pcl::PointXYZ>::Ptr in_poi
 
                 for(int i = 0 ; i < num_waypoints ; i += 3)
                 {
-                    if(getDistance(centroids[0], transformed_centroid[0], centroids[1], transformed_centroid[1]) < 0.1)
+                    if(getDistance(centroids[0], transformed_centroid[0], centroids[1], transformed_centroid[1]) < 0.2)
                     {
                         isClose += 1;
                     }
@@ -283,7 +283,7 @@ static void FindClosestCluster (const pcl::PointCloud<pcl::PointXYZ>::Ptr in_poi
                 {
                     for(int i = 0 ; i < num_waypoints ; i += 3)
                     {
-                        if(getDistance(centroids[0], transformed_centroid[0], centroids[1], transformed_centroid[1]) < 0.1)
+                        if(getDistance(centroids[0], transformed_centroid[0], centroids[1], transformed_centroid[1]) < 0.2)
                         {
                             ;
                         }
@@ -301,6 +301,7 @@ static void FindClosestCluster (const pcl::PointCloud<pcl::PointXYZ>::Ptr in_poi
         cluster_count += 1;
     }
 
+    //nhTemp->deleteParam("/TRASH_CENTROIDS");
     nhTemp->setParam("/TRASH_CENTROIDS", centroids);
     printf ("Number of clusters found: %d \n", cluster_count);
 }
@@ -360,7 +361,7 @@ int main (int argc, char** argv)
     // ROS subscriber for the input point cloud
     // topic, q_size, callback
     // ros::Subscriber sub = nh.subscribe ("/cloud", 1, VelodyneCallback);
-    ros::Subscriber sub = nh.subscribe (TOPIC_TO_SUBSCRIBE_TO, 1, VelodyneCallback);
+    ros::Subscriber sub = nh.subscribe (TOPIC_TO_SUBSCRIBE_TO, 10, VelodyneCallback);
 
     //q_size = 1 as RTABMAP is running at 1 Hz
 
