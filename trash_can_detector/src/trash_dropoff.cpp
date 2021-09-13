@@ -131,8 +131,8 @@ int main(int argc, char** argv){
     ros::init(argc, argv, "simple_navigation_goals");
     ros::NodeHandle nh;
 
-    ros::Publisher pick_topic = nh.advertise<std_msgs::Float64>("/grip_signal", 1000);
-    ros::Publisher drop_topic = nh.advertise<std_msgs::Float64>("/drop_signal", 1000);
+    ros::Publisher pick_topic = nh.advertise<std_msgs::Float64>("/artpark/grip_signal", 1000);
+    ros::Publisher drop_topic = nh.advertise<std_msgs::Float64>("/artpark/drop_signal", 1000);
     ros::Publisher stem_topic = nh.advertise<std_msgs::Float64>("/artpark/stem_ctrl/command", 10);
 
     tf2_ros::TransformListener tfListener(tfBuffer);
@@ -209,7 +209,7 @@ int main(int argc, char** argv){
         ros::Duration(5).sleep();
         drop_topic.publish(zero);
         ros::Duration(5).sleep();
-        
+
         stem_topic.publish(zero);
         ros::Duration(0.5).sleep();
 
