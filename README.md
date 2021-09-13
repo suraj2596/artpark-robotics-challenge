@@ -52,3 +52,5 @@ We use the pal-vision-segmentation package to detect the colour-distinguishable 
 We segment out the groundplane from the rtabmap registered pointcloud using the PCL library. On this segmented ground plane we run a clustering algorithm to detect the centroids of the trash items. These detected centroids are stored on ros master as a parameter and are used along with the trash can centroid paramter to perform the task of delivering the trash scattered across the room to the trash can.
 
 ![Centroid Detection](image_checkpoints/centroid_detection.png)
+
+In the above image, we can see the trash item centroids (light blue) being detected on the ground plane segmented point cloud (green).
