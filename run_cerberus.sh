@@ -13,14 +13,17 @@ fi
 
 docker run -it \
     --rm \
-    --env="DISPLAY=$DISPLAY" \
+    --env="DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --privileged -v /dev/video0:/dev/video0 \
+    --privileged -v /dev/video1:/dev/video1 \
+    --privileged -v /dev/video2:/dev/video2 \
+    --privileged -v /dev/video3:/dev/video3 \
+    --privileged -v /dev/video4:/dev/video4 \
+    --privileged -v /dev/video5:/dev/video5 \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
-    --runtime=nvidia \
-    --name cerberus \
-    cerberus \
-    /bin/bash -c \
-    "source devel/setup.bash; \
-    roslaunch cerberus_gazebo combined_launch.launch"
+    --device /dev/snd \
+    --name cerberus3 \
+    cerberus3

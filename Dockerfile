@@ -5,7 +5,12 @@ ENV NVIDIA_DRIVER_CAPABILITIES ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPA
 
 ENV CATKIN_WS=/root/cerberus_ws
 
-RUN apt update
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+RUN add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" -u
+
 RUN apt install -y \
     vim \
     tmux \
@@ -22,7 +27,11 @@ RUN apt install -y \
     ros-melodic-dwa-local-planner* \
     ros-melodic-geographic-msgs \
     libgeographic-dev \
-    geographiclib-tools
+    geographiclib-tools \
+    librealsense2-dkms \
+    librealsense2-utils \
+    librealsense2-dev \
+    librealsense2-dbg
     
 COPY ./ $CATKIN_WS/src/cerberus/
 WORKDIR $CATKIN_WS
